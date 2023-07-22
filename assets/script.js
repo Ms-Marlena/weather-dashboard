@@ -1,5 +1,5 @@
 var apiKey = "212be1e5713240df908c291b8fbba3f8";
-var cityState = document.getElementById("cityState");
+var citySta te = document.getElementById("cityState");
 
 //event Listener to search city
 document.getElementById("search").addEventListener("click", function () {
