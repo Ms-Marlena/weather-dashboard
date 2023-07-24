@@ -46,34 +46,46 @@ function forecastCards(cityLat, cityLon) {
     apiKey +
     "&units=imperial";
 
-  fetch(requestForecastURL)
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .then((forecastData) => {
-      console.log(forecastData);
-        document.querySelector("#foreCast2").innerHTML =
-            `${forecastData.list[5].dt_txt}     Temperature: 
-        ${forecastData.list[5].main.temp} F Humidity: 
-        ${forecastData.list[5].main.humidity}%, Wind Speed: 
-        ${forecastData.list[5].wind.speed} mph`;
-      document.querySelector("#foreCast3").innerHTML = "HALP!!!";
-      document.querySelector("#foreCast4").innerHTML = "HALP!!!";
-      document.querySelector("#foreCast5").innerHTML = "HALP!!!";
-      //   var startDate = dayjs().add(1, "day").startOf("day").unix();
-      //   var endDate = dayjs().add(6, "day").startOf("day").unix();
-      //   console.log(startDate);
-      //   console.log(endDate);
-         for (var i = 0; i < forecastData.list.length; i++) {
-             if (forecastData.list[i].dt_txt.indexOf("15:00:00") !== -1) {
-               var title = document.createElement //make h5 & create card for date <h5>".addClass("cardTitle")
-                 .text(
-                   newDate(forecastData.list[i].dt_txt).toLocalDateString()
-                 );
-              ;
-           }
-           
-         }
-    });
-}
+    fetch(requestForecastURL)
+        .then((response) => {
+            console.log(response);
+            return response.json();
+        })
+        .then((forecastData) => {
+            console.log(forecastData);
+            document.querySelector("#foreCast2").innerHTML =
+                `${forecastData.list[8].dt_txt}     Temperature: 
+        ${forecastData.list[8].main.temp} F Humidity: 
+        ${forecastData.list[8].main.humidity}%, Wind Speed: 
+        ${forecastData.list[8].wind.speed} mph`;
+            document.querySelector(
+              "#foreCast3"
+            ).innerHTML = `${forecastData.list[16].dt_txt}     Temperature: 
+        ${forecastData.list[16].main.temp} F Humidity: 
+        ${forecastData.list[16].main.humidity}%, Wind Speed: 
+        ${forecastData.list[16].wind.speed} mph`;
+            document.querySelector(
+              "#foreCast4"
+            ).innerHTML = `${forecastData.list[24].dt_txt} Temperature: 
+        ${forecastData.list[24].main.temp}deg.F, Humidity: 
+        ${forecastData.list[24].main.humidity}%, Wind Speed: 
+        ${forecastData.list[24].wind.speed} mph`;
+            document.querySelector(
+              "#foreCast5"
+            ).innerHTML = `${forecastData.list[32].dt_txt}     Temperature: 
+        ${forecastData.list[32].main.temp} F Humidity: 
+        ${forecastData.list[32].main.humidity}%, Wind Speed: 
+        ${forecastData.list[32].wind.speed} mph`;
+            //   var startDate = dayjs().add(1, "day").startOf("day").unix();
+            //   var endDate = dayjs().add(6, "day").startOf("day").unix();
+            //   console.log(startDate);
+            //   console.log(endDate);
+        //     for (var i = 0; i < forecastData.list.length; i++) {
+        //         if (forecastData.list[i].dt_txt.indexOf("15:00:00") !== -1) {
+        //             var title = document.createElement("card").text = `${forecastData.list[i].dt_txt}     Temperature: 
+        // ${forecastData.list[i].main.temp} F Humidity: 
+        // ${forecastData.list[i].main.humidity}%, Wind Speed: 
+        // ${forecastData.list[i].wind.speed} mph`;
+                }
+            ) //    newDate(forecastData.list[i].dt_txt).toLocalDateString()
+        };
