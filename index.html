@@ -8,24 +8,28 @@
   </head> 
   <body>
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="#">
       <img src="./images/weatherIcon.png" 
       alt="Logo" width="50" height="45" class="d-inline-block align-text-top">
-      Weather Dashboard
+      <b>Weather Dashboard</b>
     </a>
   </div>
 </nav>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-6">
     <div class="input-group mb-3">
-    <input id="city" type="text" class="form-control" placeholder="City/State" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <input id="city" type="text" class="form-control" placeholder="City" aria-label="Input city name" aria-describedby="button-addon2">
+    <div class="col-3">
     <button id="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-    <div id=currentIcon class="col-2 container-fluid">
     </div>
-    <div id=currentWeather class="col-4 container-fluid">
-      "Today's Weather"
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div id=currentIcon class="col-2 container">
+    </div>
+    <div id=currentWeather class="col-8 container">
+      <b>Today's Weather</b>
     </div>
   </div>
     <div class="row">
@@ -34,10 +38,10 @@
       <div  class="col-3">Day 4</div>
       <div  class="col-3">Day 5</div>
     <div class="row">
-      <div id=foreCast2 class="col-3">"Forecast Day 2"</div>
-      <div id=foreCast3 class="col-3">"Forecast Day 3"</div>
-      <div id=foreCast4 class="col-3">"Forecast Day 4"</div>
-      <div id=foreCast5 class="col-3">"Forecast Day 5"</div>
+      <div id=foreCast2 class="col-3">Forecast Day 2</div>
+      <div id=foreCast3 class="col-3">Forecast Day 3</div>
+      <div id=foreCast4 class="col-3">Forecast Day 4</div>
+      <div id=foreCast5 class="col-3">Forecast Day 5</div>
   </div>
 </div>  
 
