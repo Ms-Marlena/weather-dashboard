@@ -27,11 +27,15 @@ function searchCurrent(city) {
       console.log(currentData.coord.lon);
       document.querySelector(
         "#currentWeather"
-      ).textContent =
-        ` ${currentData.name} Today 
-      Temperature: ${currentData.main.temp} F
-      Humidity: ${currentData.main.humidity}%
-      Wind Speed: ${currentData.wind.speed} mph`;
+      ).textContent = ` ${currentData.name} Today__ 
+      \nTemperature: ${currentData.main.temp} F
+      \nHumidity: ${currentData.main.humidity}%
+      \nWind Speed: ${currentData.wind.speed} mph`;
+      
+      document.querySelector("#icon").setAttribute(
+          "src",
+          `https://openweathermap.org/img/wn/${currentData.weather[0].icon}.png`
+        );
 
       cityLat = currentData.coord.lat;
       cityLon = currentData.coord.lon;
@@ -49,36 +53,57 @@ function forecastCards(cityLat, cityLon) {
     apiKey +
     "&units=imperial";
 
-    fetch(requestForecastURL)
-        .then((response) => {
-            console.log(response);
-            return response.json();
-        })
-        .then((forecastData) => {
-            console.log(forecastData);
-            document.querySelector("#foreCast2").innerHTML =
-              `${forecastData.list[8].dt_txt}     
-                Temperature: ${forecastData.list[8].main.temp} F     
-                Humidity: ${forecastData.list[8].main.humidity}% 
-                Wind Speed: ${forecastData.list[8].wind.speed} mph`;
-            document.querySelector(
-              "#foreCast3"
-            ).innerHTML = `${forecastData.list[16].dt_txt} 
-            Temperature: ${forecastData.list[16].main.temp} F 
-            Humidity: ${forecastData.list[16].main.humidity}% 
-            Wind Speed: ${forecastData.list[16].wind.speed} mph`;
-            document.querySelector(
-              "#foreCast4"
-            ).innerHTML = `${forecastData.list[24].dt_txt} 
-            Temperature: ${forecastData.list[24].main.temp} F 
-            Humidity: ${forecastData.list[24].main.humidity}%
-             Wind Speed: ${forecastData.list[24].wind.speed} mph`;
-            document.querySelector(
-              "#foreCast5"
-            ).innerHTML = `${forecastData.list[32].dt_txt} 
-            Temperature: ${forecastData.list[32].main.temp} F 
-            Humidity: ${forecastData.list[32].main.humidity}% 
-            Wind Speed: ${forecastData.list[32].wind.speed} mph`;
-                }
-            ) 
-        };
+  fetch(requestForecastURL)
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((forecastData) => {
+      console.log(forecastData);
+      // Day 2
+      document.querySelector("#d2icon").setAttribute(
+          "src",
+          `https://openweathermap.org/img/wn/${forecastData.list[8].weather[0].icon}.png`
+        );
+      document.querySelector(
+        "#foreCast2"
+      ).innerHTML = `${forecastData.list[8].dt_txt.substring(0, 11)}               
+          \nTemperature: ${forecastData.list[8].main.temp} F            
+          \nHumidity: ${forecastData.list[8].main.humidity}%          
+          \nWind Speed: ${forecastData.list[8].wind.speed} mph`;
+      // Day 3
+      document.querySelector("#d3icon").setAttribute(
+          "src",
+          `https://openweathermap.org/img/wn/${forecastData.list[16].weather[0].icon}.png`
+        );
+      document.querySelector(
+        "#foreCast3"
+      ).innerHTML = `${forecastData.list[16].dt_txt.substring(0, 11)} 
+            \nTemperature: ${forecastData.list[16].main.temp} F
+            \nHumidity: ${forecastData.list[16].main.humidity}% 
+            \nWind Speed: ${forecastData.list[16].wind.speed} mph`;
+        // Day 4
+      document.querySelector("#d4icon").setAttribute(
+          "src",
+          `https://openweathermap.org/img/wn/${forecastData.list[24].weather[0].icon}.png`
+        );
+      document.querySelector(
+        "#foreCast4"
+      ).innerHTML = `${forecastData.list[24].dt_txt.substring(0, 11)} 
+          \nTemperature: ${forecastData.list[24].main.temp} F 
+          \nHumidity: ${forecastData.list[24].main.humidity}%
+          \nWind Speed: ${forecastData.list[24].wind.speed} mph`;
+      // Day 5
+      document
+        .querySelector("#d5icon").setAttribute(
+          "src",
+          `https://openweathermap.org/img/wn/${forecastData.list[32].weather[0].icon}.png`
+        );
+      document.querySelector(
+        "#foreCast5"
+      ).innerHTML = `${forecastData.list[32].dt_txt.substring(0, 11)}
+            \nTemperature: ${forecastData.list[32].main.temp} F
+            \nHumidity: ${forecastData.list[32].main.humidity}% 
+            \nWind Speed: ${forecastData.list[32].wind.speed} mph`;
+    });
+}
