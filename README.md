@@ -1,8 +1,8 @@
 # Weather Dashboard
 <a href="https://github.com/Ms-Marlena/weather-dashboard">Repository Link</a> 
+
 <a href="https://ms-marlena.github.io/weather-dashboard">Website Link</a>
 
-github repository link: https://github.com/Ms-Marlena/weather-dashboardLinks to an external site.
 ## Description
 I built this project to provide a 5-day forecast for any given city, with a simple and clean interface. 
 I learned a lot about time management! I also learned how to call and display specific information from an API, as well as more about working with Bootstrap. 
